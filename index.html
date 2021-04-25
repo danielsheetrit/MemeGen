@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/meme.style.css">
+    <link rel="shortcut icon" href="img/vintage-bathtub.svg" type="image/x-icon">
+    <title>MemeGen</title>
+</head>
+
+<body onload="init()">
+    <!-- header -->
+    <header class="main-header">
+        <div class="header-container container flex">
+            <div class="logo-container flex">
+                <span class="logo-txt">MemeGen</span>
+                <img class="logo-bath" src="img/vintage-bathtub.svg" alt="">
+            </div>
+            <nav class="main-nav flex">
+                <a onclick="onOpenGallry()">Gallery</a>
+                <a onclick="onOpenMemeGarage()">Meme garage</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- hero -->
+    <div class="hero-container">
+        <img class="hero-img" src="img/memehero.jpg" alt="">
+    </div>
+
+    <!-- meme editor -->
+    <section class="meme-editor container flex">
+        <div class="canvas-container flex">
+            <canvas class="canvas-sheet" height="450" width="450"></canvas>
+        </div>
+        <div class="controllers-container grid">
+            <input class="txt-input" type="text" placeholder="Your text" oninput="onTextInput(this)">
+            <div class="fontpick-container flex">
+                <select class="font-picker" oninput="onChangeFont(this.value)">
+                    <option value="Impact">Impact</option>
+                    <option value="Ariel">Ariel</option>
+                    <option value="Monospace">Monospace</option>
+                </select>
+            </div>
+            <div class="a-controllers flex">
+                <button class="increase-btn small-ctrl-btn" onclick="onIncreaseFontSize()">A+</button>
+                <button class="decrease-btn small-ctrl-btn" onclick="onDecreaseFontSize()">A-</button>
+                <button class="decrease-btn small-ctrl-btn bold-stroke" onclick="onIncreaseStroke()">B</button>
+                <button class="decrease-btn small-ctrl-btn light-stroke" onclick="onDecreaseStroke()">B</button>
+            </div>
+            <div class="colorpick-container flex">
+                <div class="color-picker-input flex">
+                    <label for="fontcolor-pick">A</label>
+                    <input type="color" id="fontcolor-pick" oninput="onFontColorPick(this.value)">
+                </div>
+                <div class="color-picker-input flex">
+                    <label for="strokcolor-pick">B</label>
+                    <input type="color" id="strokcolor-pick" oninput="onStrokeColorPick(this.value)">
+                </div>
+            </div>
+            <button class="addline-btn ctrl-btn" onclick="onAddNewLine()">Add line</button>
+            <button class="removeline-btn ctrl-btn" onclick="onRemoveLine()">Remove line</button>
+            <button class="switch-btn ctrl-btn" onclick="onSwitchLines()">Switch line</button>
+            <button class="save-btn ctrl-btn" onclick="onSaveMeme()">Save to storage</button>
+            <a class="download-btn" onclick="onDownloadMeme(this)">Download meme</a>
+        </div>
+    </section>
+
+    <!-- search box -->
+    <div class="search-container flex">
+        <input class="search-input flex" type="text" oninput="onGallerySearch(this.value)"
+            placeholder="search image for your meme.">
+    </div>
+
+    <!-- main page -->
+    <main class="main-container">
+        <!-- gallery -->
+        <div class="gallery-container container grid"></div>
+        <!-- meme garage -->
+        <div class="garage-container container"></div>
+    </main>
+
+    <!-- footer -->
+    <footer class="main-footer flex">
+        <span class="allrights-txt flex">©All Rights Reserved as F*CK</span>
+    </footer>
+
+    <script src="js/hammer.js"></script>
+    <script src="js/meme.draganddrop.js"></script>
+    <script src="js/meme.storage.js"></script>
+    <script src="js/meme.service.js"></script>
+    <script src="js/meme.controller.js"></script>
+</body>
+
+</html>
